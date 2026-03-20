@@ -65,9 +65,18 @@ spec:
           timeoutSeconds: 10
           failureThreshold: 3
           successThreshold: 1
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
         resources:
+          requests:
+            cpu: 250m
+            memory: 512Mi
           limits:
-            memory: 300Mi
+            cpu: 1
+            memory: 1Gi
         volumeMounts:
         - name: config-volume
           mountPath: "/etc/config"
@@ -80,6 +89,8 @@ spec:
         runAsGroup: 65534
         runAsNonRoot: true
         runAsUser: 65534
+        seccompProfile:
+          type: RuntimeDefault
       terminationGracePeriodSeconds: 300
       volumes:
       - name: config-volume

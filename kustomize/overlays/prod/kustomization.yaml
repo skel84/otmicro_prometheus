@@ -8,7 +8,7 @@ commonLabels:
   app.kubernetes.io/environment: prod
 replicas:
 - name: prometheus
-  count: 2
+  count: 1
 
 # ---
 # images:
