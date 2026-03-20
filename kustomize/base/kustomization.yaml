@@ -1,0 +1,10 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- 01-serviceaccount-prometheus.yaml
+- 02-configmap-prometheus.yaml
+- 03-clusterrole-prometheus.yaml
+- 04-clusterrolebinding-prometheus.yaml
+- 05-service-prometheus.yaml
+- 06-deployment-prometheus.yaml
